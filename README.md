@@ -1,12 +1,13 @@
-`vim-nestedtext` --- Syntax highlighting for NestedText files
-==============================================================
-`vim-nestedtext` is a vim plugin that provides syntax highlighting for the 
-[NestedText](https://nestedtext.org) file format.
+NestedText plugin for Vim
+=========================
+`vim-nestedtext` is a vim plugin that provides syntax highlighting and 
+ a handful of sensible settings for the [NestedText](https://nestedtext.org) 
+ file format.
 
 Installation
 ------------
-`vim-nestedtext` can be installed using any of the plugin management systems 
-out there:
+This plugin is compatible with both vim and neovim, and can be installed 
+using any of the plugin management systems out there:
 
 ### [pathogen](https://github.com/tpope/vim-pathogen)
 
