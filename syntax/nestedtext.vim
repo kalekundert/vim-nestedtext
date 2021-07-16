@@ -27,6 +27,7 @@ syntax region ntInlineList start="\s*\[" end="\]\s*" contained oneline contains=
 syntax cluster ntInlineListValue contains=ntInlineListString,ntInline
 syntax match ntInlineListString "[^{}[\],]*" contained
 
+" commas are pretty much ignored in inline dictionaries
 syntax match ntInline " *{.*}\s*" contains=,ntInlineDict
 syntax region ntInlineDict start="\s*{" end="}\s*" contained oneline contains=ntInlineDictItem
 syntax match ntInlineDictItem "[^{}[\],:]*:" contained nextgroup=@ntInlineDictValue
