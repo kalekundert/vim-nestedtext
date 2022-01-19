@@ -1,8 +1,8 @@
 NestedText plugin for Vim
 =========================
-`vim-nestedtext` is a vim plugin that provides syntax highlighting and 
- a handful of sensible settings for the [NestedText](https://nestedtext.org) 
- file format.
+`vim-nestedtext` is a vim plugin that provides syntax highlighting and a handful 
+of sensible settings for the [NestedText 3.0](https://nestedtext.org) file 
+format.
 
 Installation
 ------------
