@@ -39,7 +39,8 @@ Features
 --------
 - Syntax highlighting
 - Show trailing whitespace
-- Indent-based folding
+- Indent-based folding: enable with `let g:nestedtext_folding = 1` in your
+  vimrc
 
 Feedback
 --------
