@@ -36,22 +36,22 @@ syntax match nestedtextInlineDictString "[^{}[\],:]*" contained
 syntax match nestedtextComment "^ *#.*$"
 
 
-highlight link nestedtextError Error
-highlight link nestedtextComment Comment
+hi def link nestedtextError Error
+hi def link nestedtextComment Comment
 
-highlight link nestedtextListTag Normal
-highlight link nestedtextStringTag Normal
-highlight link nestedtextKeyTag Normal
-highlight link nestedtextDictTag Normal
-highlight link nestedtextDictKey Label
-highlight link nestedtextKey Label
-highlight link nestedtextString String
+hi def link nestedtextListTag Normal
+hi def link nestedtextStringTag Normal
+hi def link nestedtextKeyTag Normal
+hi def link nestedtextDictTag Normal
+hi def link nestedtextDictKey Label
+hi def link nestedtextKey Label
+hi def link nestedtextString String
 
-highlight link nestedtextInline Normal
-highlight link nestedtextInlineList Normal
-highlight link nestedtextInlineDict Normal
-highlight link nestedtextInlineListString String
-highlight link nestedtextInlineDictString String
-highlight link nestedtextInlineDictItem Label
+hi def link nestedtextInline Normal
+hi def link nestedtextInlineList Normal
+hi def link nestedtextInlineDict Normal
+hi def link nestedtextInlineListString String
+hi def link nestedtextInlineDictString String
+hi def link nestedtextInlineDictItem Label
 
 let b:current_syntax = "nestedtext"
