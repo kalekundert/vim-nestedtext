@@ -1,58 +1,54 @@
-
 if exists("b:current_syntax")
   finish
 endif
 
-syntax match ntError ".*"
+syntax match nestedtextError "^\t\+"
 
-" ntDictItem must be given first so that it has the lowest priority
-syntax match ntDictTag  "^ *[^{[].\{-}:[ \n]" contains=ntDictKey
-syntax match ntDictKey  "^ *[^{[].\{-}: "he=e-2 nextgroup=ntString
-syntax match ntDictKey  "^ *[^{[].\{-}:$"he=e-1
+syntax match nestedtextDictKey "^ *\zs[^[:space:]{[].\{-}: "he=e-2 nextgroup=nestedtextString
+syntax match nestedtextDictKey "^ *\zs[^[:space:]{[].\{-}:$"he=e-1
 
-syntax match ntListTag   "^ *- " nextgroup=ntString
-syntax match ntListTag   "^ *-$"
+syntax match nestedtextListTag "^ *\zs- " nextgroup=nestedtextString
+syntax match nestedtextListTag "^ *\zs-$"
 
-syntax match ntStringTag   "^ *> " nextgroup=ntString
-syntax match ntStringTag    "^ *>$"
+syntax match nestedtextStringTag "^ *\zs> " nextgroup=nestedtextString
+syntax match nestedtextStringTag "^ *\zs>$"
 
-syntax match ntKeyTag   "^ *: " nextgroup=ntKey
-syntax match ntKeyTag   "^ *:$"
+syntax match nestedtextKeyTag "^ *\zs: " nextgroup=nestedtextKey
+syntax match nestedtextKeyTag "^ *\zs:$"
 
-syntax match ntKey ".*$" contained
-syntax match ntString ".*$" contained
+syntax match nestedtextKey ".*$" contained
+syntax match nestedtextString ".*$" contained
 
-syntax match ntInline " *\[.*\]\s*" contains=ntInlineList
-syntax region ntInlineList start="\s*\[" end="\]\s*" contained oneline contains=@ntInlineListValue
-syntax cluster ntInlineListValue contains=ntInlineListString,ntInline
-syntax match ntInlineListString "[^{}[\],]*" contained
+syntax match nestedtextInline "\[.*\]" contains=nestedtextInlineList
+syntax region nestedtextInlineList start="\[" end="\]" contained oneline contains=@nestedtextInlineListValue
+syntax cluster nestedtextInlineListValue contains=nestedtextInlineListString,nestedtextInline
+syntax match nestedtextInlineListString "[^{}[\],]*" contained
 
 " commas are pretty much ignored in inline dictionaries
-syntax match ntInline " *{.*}\s*" contains=,ntInlineDict
-syntax region ntInlineDict start="\s*{" end="}\s*" contained oneline contains=ntInlineDictItem
-syntax match ntInlineDictItem "[^{}[\],:]*:" contained nextgroup=@ntInlineDictValue
-syntax cluster ntInlineDictValue contains=ntInlineDictString,ntInline
-syntax match ntInlineDictString "[^{}[\],:]*" contained
+syntax match nestedtextInline "{.*}" contains=,nestedtextInlineDict
+syntax region nestedtextInlineDict start="{" end="}" contained oneline contains=nestedtextInlineDictItem
+syntax match nestedtextInlineDictItem "[^{}[\],:]*:" contained nextgroup=@nestedtextInlineDictValue
+syntax cluster nestedtextInlineDictValue contains=nestedtextInlineDictString,nestedtextInline
+syntax match nestedtextInlineDictString "[^{}[\],:]*" contained
 
-syntax match ntComment "^ *#.*$"
+syntax match nestedtextComment "^ *\zs#.*$"
 
 
-highlight link ntError Error
-highlight link ntComment Comment
+hi def link nestedtextError Error
+hi def link nestedtextComment Comment
 
-highlight link ntListTag Normal
-highlight link ntStringTag Normal
-highlight link ntKeyTag Normal
-highlight link ntDictTag Normal
-highlight link ntDictKey Label
-highlight link ntKey Label
-highlight link ntString String
+hi def link nestedtextListTag Normal
+hi def link nestedtextStringTag Normal
+hi def link nestedtextKeyTag Normal
+hi def link nestedtextDictKey Label
+hi def link nestedtextKey Label
+hi def link nestedtextString String
 
-highlight link ntInline Normal
-highlight link ntInlineList Normal
-highlight link ntInlineDict Normal
-highlight link ntInlineListString String
-highlight link ntInlineDictString String
-highlight link ntInlineDictItem Label
+hi def link nestedtextInline Normal
+hi def link nestedtextInlineList Normal
+hi def link nestedtextInlineDict Normal
+hi def link nestedtextInlineListString String
+hi def link nestedtextInlineDictString String
+hi def link nestedtextInlineDictItem Label
 
 let b:current_syntax = "nestedtext"
