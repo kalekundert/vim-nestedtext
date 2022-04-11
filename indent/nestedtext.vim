@@ -7,6 +7,7 @@ let b:did_indent = 1
 setlocal indentexpr=GetNestedTextIndent(v:lnum)
 setlocal indentkeys=0{,0[,0>,0-,<:>,0#,!^F,o,O
 setlocal nosmartindent
+let b:undo_indent = "setl inde< indk< si<"
 
 let s:list_item = '^ *-\%( \@=\|$\)'
 let s:key_tag = '^ *:\%( \@=\|$\)'
